@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "footage-analyzer"
+version = "0.1.0"
+description = ""
+authors = ["Gilles <43683714+corp-0@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ffmpeg-python = "^0.2.0"
+moviepy = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
