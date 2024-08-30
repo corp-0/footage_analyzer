@@ -5,6 +5,7 @@ from pathlib import Path
 @dataclass
 class VideoData:
     filename: str
+    path: Path
     file_extension: str
     runtime_minutes: float
     resolution: str
@@ -17,6 +18,6 @@ def get_metadata(file: Path) -> VideoData | None:
             runtime = video.duration
             resolution = f"{video.w}x{video.h}"
 
-        return VideoData(filename, extension, runtime, resolution)
+        return VideoData(filename, file, extension, runtime, resolution)
     except:  # noqa: E722
         return None

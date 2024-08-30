@@ -6,7 +6,7 @@ from footage_analyzer.videoData import VideoData, get_metadata
 
 def collect_and_write(root_dir: Path, output_csv: Path, allowed_extensions: list[str]):
     with open(output_csv, mode="w", newline="") as csv_file:
-        field_names = ["filename", "type", "runtime (seconds)", "resolution"]
+        field_names = ["filename", "full path", "type", "runtime (seconds)", "resolution"]
         writer = csv.DictWriter(csv_file, fieldnames=field_names, delimiter=";")
         writer.writeheader()
         total_files = 0
@@ -29,6 +29,7 @@ def collect_and_write(root_dir: Path, output_csv: Path, allowed_extensions: list
                         writer.writerow(
                             {
                                 "filename": video.filename,
+                                "full path": video.path,
                                 "type": video.file_extension,
                                 "runtime (seconds)": video.runtime_minutes,
                                 "resolution": video.resolution,
